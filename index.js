@@ -64,3 +64,50 @@ const Main = () => {
         cleanArrays();
     }
 }
+
+// Funcoes para verificacao da trinca e regras de negocio
+const verificaRegiao = (trinca) => {
+    if(trinca >= 201 && trinca <= 499) {
+        return true;
+    } else if (trinca >= 001 && trinca <= 199 ) {
+        return true;
+    }
+    return false;
+}
+
+const verificaCodLoggi = (trinca) => {
+    if (trinca !== 555) {
+        return false;
+    }
+    return true;
+}
+
+const verificaCodVendedor = (trinca) => {
+    if (trinca === 367){
+        return false;
+    }
+    return true;
+}
+
+const verificaTipoProduto = (trinca) => {
+    if(trinca === 001){
+        return true;
+    } else if (trinca === 111) {
+        return true;
+    } else if (trinca  === 333)  {
+        return true;
+    } else if (trinca === 555 ) {
+        return true;
+    } else if (trinca === 888){
+        return true;
+    }
+    return false;
+}
+
+const verificaJoiasNoCentroOeste = (trinca, codigo) => {
+    let trincaCentroOeste =  parseInt(codigo.slice(0, 3));
+    if (trinca === 001 && trincaCentroOeste >= 201 && trincaCentroOeste <= 299) {
+        return false;
+    }
+    return  true;
+}

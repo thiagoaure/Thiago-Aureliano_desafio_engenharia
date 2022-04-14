@@ -194,3 +194,24 @@ const localizaRegiao = (inicio, fim) => {
     })
 
 }
+
+//Necessario utilizar a funcao de Localizar regiao para imprimir
+const imprimePacotesPorRegiao = () => {
+    try {
+        console.info('\nREGIAO CENTRO-OESTE' + '\nNumero de Pacotes nessa Regiao: ' + centroOeste.length)
+        console.table(centroOeste);
+        console.info('\nREGIAO NORDESTE' + '\nNumero de Pacotes nessa Regiao: ' + nordeste.length )
+        console.table(nordeste);
+        console.info('\nREGIAO NORTE' + '\nNumero de Pacotes nessa Regiao: ' + norte.length)
+        console.table(norte);
+        console.info('\nREGIAO SUDESTE' +  '\nNumero de Pacotes nessa Regiao: ' + sudeste.length)
+        console.table(sudeste);
+        console.info('\nREGIAO SUL' +  '\nNumero de Pacotes nessa Regiao: ' + sul.length)
+        console.table(sul);
+        console.info('\nREGIAO INVALIDA' +  '\nNumero de Pacotes com regiao invalida: ' + RegiaoInvalida.length)
+        console.table(RegiaoInvalida);
+        
+    } catch (error) {
+        console.log(error +  '\nFuncao utilizado fora da regra');
+    }
+}

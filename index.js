@@ -111,3 +111,53 @@ const verificaJoiasNoCentroOeste = (trinca, codigo) => {
     }
     return  true;
 }
+
+/* 
+    Função para validar se o codigo é valido ou não de acordo com as regras de negócio
+
+    1 Região de Origem 0 - 3
+    2 Região de Destino 3 - 6
+    3 Código da Loggi 6 - 9
+    4 Código do Vendedor do produto 9- 12
+    5 Tipo do produto 12 - 15
+*/
+
+const validadorDeCodigo = () => {
+    inicio = [0, 3, 6, 9, 12];
+    fim =  [3, 6, 9, 12, 15];
+    let i = 0;
+    while(i < inicio.length && i < fim.length){
+        pacotes.map((item, index) => {
+            let trinca =  parseInt(item.codigo.slice(parseInt(inicio[i]), parseInt(fim[i])));
+
+            if (i === 0){
+                if(!verificaRegiao(trinca)) { //Origem
+                    item.valido = false;
+                }
+            } else if (i === 1) {
+                if (!verificaRegiao(trinca)) { //Destino
+                    item.valido = false;
+                }
+            } else if (i === 2) {
+                if (!verificaCodLoggi(trinca)) {
+                    item.valido = false;
+                }
+            } else if (i === 3) {
+                if (!verificaCodVendedor(trinca)) {
+                    item.valido = false;
+                }
+            } else if (i === 4){
+                if (!verificaJoiasNoCentroOeste(trinca, item.codigo)) {
+                    item.valido = false;
+                }
+                if (!verificaTipoProduto(trinca)) {
+                    item.valido = false;
+                }
+            } else {
+                console.log('ERRO DE INDEX');
+            }
+            
+        })
+        i++;
+    }
+}

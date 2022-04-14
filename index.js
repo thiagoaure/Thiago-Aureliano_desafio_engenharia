@@ -343,3 +343,29 @@ const listaDestinoETipo = () => {
     console.table(tipoNorte);
 
 }
+
+//Ordem de entrega dos pacotes nas regioes Centro Oeste e  Norte
+
+const OrdenaCargaDosPacotes = () => {
+    let ordenado = []
+    localizaRegiao(3, 6);
+    centroOeste.map((item, index) => {
+        let trinca = separator(item.codigo, 12, 15);
+        if(getTipo(trinca) == 'JOIAS') {
+            ordenado.unshift(item)
+        } else {
+            ordenado.push(item);
+        }
+    })
+    norte.map((item, index) => {
+        let trinca = separator(item.codigo, 12, 15);
+        if(getTipo(trinca) == 'JOIAS') {
+            ordenado.splice(ordenado.length-1, 0, item)
+        } else {
+            ordenado.push(item);
+        }
+    })
+    console.log('\n');
+    console.table(ordenado);
+
+}

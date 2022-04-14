@@ -215,3 +215,38 @@ const imprimePacotesPorRegiao = () => {
         console.log(error +  '\nFuncao utilizado fora da regra');
     }
 }
+
+// Lista pacotes validos e invalidos separados por tabela
+const listaPacotesSeprados = () => {
+    let validos = [], invalidos = [];
+    pacotes.map((item, index) => {
+        if (item.valido) {
+            validos.push({name: item.name});
+        } else {
+            invalidos.push({name: item.name});
+        }
+    })
+
+    console.info('\nPACOTES VALIDOS\n');
+    console.table(validos);
+    console.log('\n');
+    console.info('PACOTES INVALIDOS\n');
+    console.table(invalidos);
+    console.log('\n');
+
+}
+
+//Lista invalidos
+const listaPacotesInvalidos = () => {
+    let invalidos = [];
+    pacotes.map((item, index) => {
+        if (!item.valido) {
+            invalidos.push({name: item.name});
+        }
+    })
+
+    console.info('PACOTES INVALIDOS\n');
+    console.table(invalidos);
+    console.log('\n');
+
+}

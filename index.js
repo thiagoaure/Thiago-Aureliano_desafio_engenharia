@@ -161,3 +161,9 @@ const validadorDeCodigo = () => {
         i++;
     }
 }
+
+// Separa string do codigo de barras para verificao necessaria
+const separator = ( codigo, inicio, fim) => {
+    let trinca = codigo.slice(parseInt(inicio), parseInt(fim))
+    return trinca;
+}

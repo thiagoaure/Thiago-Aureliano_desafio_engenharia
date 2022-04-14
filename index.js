@@ -250,3 +250,14 @@ const listaPacotesInvalidos = () => {
     console.log('\n');
 
 }
+
+// Listar pacotes por vendedor 
+const listaPacotesVendedor = () => {
+    pacotes.map((item, index) => {
+        if (item.valido) {
+            let trinca = separator(item.codigo, 9, 12);
+            console.log('\nVENDEDOR: ' +  trinca  + '\nPACOTE: ' + item.name);
+        }
+    })
+
+}

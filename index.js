@@ -261,3 +261,20 @@ const listaPacotesVendedor = () => {
     })
 
 }
+
+// Lista pacotes no Sul com brinquedos
+const listaPacotesNoSulcomBrinquedos = () => {
+    let sulBrinquedos = [];
+    sul.map((item, index) => {
+        let trinca = separator(item.codigo, 12, 15);
+        if (trinca == 888){
+            sulBrinquedos.push(item.name);
+        }
+    })
+    if (sulBrinquedos.length === 0) {
+        console.log('\nNao Ha Pacotes na Regiao Sul com Brinquedos\n');
+    } else {
+    console.info('\nLista dos Pacotes no SUL que contem Brinquedos\n');
+    console.table(sulBrinquedos);
+    }
+}

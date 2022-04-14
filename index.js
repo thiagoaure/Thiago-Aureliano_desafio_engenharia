@@ -344,8 +344,17 @@ const listaDestinoETipo = () => {
 
 }
 
-//Ordem de entrega dos pacotes nas regioes Centro Oeste e  Norte
 
+// Centro Oeste -> Norte
+const caminhaoCentroeNorte = () => {
+    localizaRegiao(3, 6);
+    let pacotesCentroENorte = [...centroOeste, ...norte];
+    console.log('\n');
+    console.log('Pacotes a serem despachadas no mesmo caminhao para Centro Oste e Norte');
+    console.table(pacotesCentroENorte);
+}
+
+//Ordem de entrega dos pacotes nas regioes Centro Oeste e  Norte
 const OrdenaCargaDosPacotes = () => {
     let ordenado = []
     localizaRegiao(3, 6);

@@ -167,3 +167,30 @@ const separator = ( codigo, inicio, fim) => {
     let trinca = codigo.slice(parseInt(inicio), parseInt(fim))
     return trinca;
 }
+
+
+// Calcula destino e quantidade de cada pacote por regiao
+let centroOeste = [], nordeste= [], norte = [], sudeste = [], sul = [];
+let RegiaoInvalida = [];
+
+const localizaRegiao = (inicio, fim) => {
+    
+    pacotes.map((item, index) => {
+        let trinca = separator(item.codigo, parseInt(inicio), parseInt(fim));
+
+        if(trinca >= 201 && trinca <= 299){
+            centroOeste.push({name: item.name, codigo: item.codigo, valido: item.valido});
+        } else if (trinca >= 300 && trinca <= 399) {
+            nordeste.push({name: item.name, codigo: item.codigo, valido: item.valido});
+        } else if (trinca >= 400 && trinca <= 499)  {
+            norte.push({name: item.name, codigo: item.codigo, valido: item.valido});
+        } else if (trinca >= 1 && trinca <= 99 ) {
+            sudeste.push({name: item.name, codigo: item.codigo, valido: item.valido});
+        } else if (trinca >= 100 && trinca <= 199){
+            sul.push({name: item.name, codigo: item.codigo, valido: item.valido});
+        } else {
+            RegiaoInvalida.push({name: item.name, codigo: item.codigo, valido: item.valido})
+        }
+    })
+
+}

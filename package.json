@@ -1,0 +1,14 @@
+{
+  "name": "thiago-aureliano_desafio_engenharia",
+  "version": "1.0.0",
+  "description": "sistema para o processo seletivo da loggi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "thiago aureliano",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}

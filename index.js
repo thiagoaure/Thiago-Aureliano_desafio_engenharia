@@ -369,3 +369,11 @@ const OrdenaCargaDosPacotes = () => {
     console.table(ordenado);
 
 }
+ //Esvazia Arrays
+const cleanArrays = () => {
+    sul.splice(0, sul.length);
+    sudeste.splice(0, sudeste.length);
+    nordeste.splice(0, nordeste.length);
+    centroOeste.splice(0, centroOeste.length);
+    norte.splice(0, norte.length);
+}

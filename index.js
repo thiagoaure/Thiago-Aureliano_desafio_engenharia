@@ -377,3 +377,8 @@ const cleanArrays = () => {
     centroOeste.splice(0, centroOeste.length);
     norte.splice(0, norte.length);
 }
+
+//Inicializa  a veracidade do codigo de barras e Menu de Opcoes
+validadorDeCodigo();
+Main();
+console.table(pacotes);

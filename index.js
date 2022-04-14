@@ -278,3 +278,68 @@ const listaPacotesNoSulcomBrinquedos = () => {
     console.table(sulBrinquedos);
     }
 }
+
+//Captura tipo do produto
+const getTipo = (trinca) => {
+    if(trinca == 001){
+        return 'JOIAS';
+    } else if (trinca == 111) {
+        return 'LIVROS';
+    } else if (trinca  == 333)  {
+        return 'ELETRONICOS';
+    } else if (trinca == 555 ) {
+        return 'BEBIDAS';
+    } else if (trinca == 888){
+        return 'BRINQUEDOS';
+    } else {
+    return 'TIPO INEXISTENTE';
+    }
+}
+
+// Lista o Pacote com o seu Destino e seu Tipo
+const listaDestinoETipo = () => {
+    let tipoSul = [], tipoSudeste = [], tipoNordeste = [], tipoCentro = [], tipoNorte = []; 
+    localizaRegiao(3, 6);
+    sul.map((item, index) => {
+        if (item.valido) {
+            let trinca = separator(item.codigo, 12, 15);
+            tipoSul.push({pacote: item.name, regiao: 'SUL', tipo: getTipo(trinca)});
+        }
+    })
+    sudeste.map((item, index) => {
+        if (item.valido) {
+            let trinca = separator(item.codigo, 12, 15);
+            tipoSudeste.push({pacote: item.name, regiao: 'SUDESTE', tipo: getTipo(trinca)});
+        }
+    })
+    nordeste.map((item, index) => {
+        if (item.valido) {
+            let trinca = separator(item.codigo, 12, 15);
+            tipoNordeste.push({pacote: item.name, regiao: 'NORDESTE', tipo: getTipo(trinca)});
+        }
+    })
+    centroOeste.map((item, index) => {
+        if (item.valido) {
+            let trinca = separator(item.codigo, 12, 15);
+            tipoCentro.push({pacote: item.name, regiao: 'CENTRO OESTE', tipo: getTipo(trinca)});
+        }
+    })
+    norte.map((item, index) => {
+        if (item.valido) {
+            let trinca = separator(item.codigo, 12, 15);
+            tipoNorte.push({pacote: item.name, regiao: 'NORTE', tipo: getTipo(trinca)});
+        }
+    })
+
+    console.info('\nREGIAO SUL\n');
+    console.table(tipoSul);
+    console.info('\nREGIAO SUDESTE\n');
+    console.table(tipoSudeste);
+    console.info('\nREGIAO NORDESTE\n');
+    console.table(tipoNordeste);
+    console.info('\nREGIAO CENTRO OESTE\n');
+    console.table(tipoCentro);
+    console.info('\nREGIAO Norte\n');
+    console.table(tipoNorte);
+
+}
